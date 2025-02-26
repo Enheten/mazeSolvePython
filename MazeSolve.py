@@ -32,7 +32,8 @@ def move(start, goal): # will return the path if there is one.
             current_path.pop()
             if current_path:
                 x, y = current_path[-1]
-        current_path.append((x, y)) # adds the current x, y position to path
+        if (( x, y ) != current_path[-1]): # only appends if the currentpath is new.
+            current_path.append((x, y)) # adds the current x, y position to path
         visited.append((x, y)) # also adds visited position.
     if (current_path[-1] == goal): # if last element in list is same position as goal, return path.
         return current_path
